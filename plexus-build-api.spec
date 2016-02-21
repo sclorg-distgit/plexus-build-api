@@ -4,7 +4,7 @@
 
 Name:           %{?scl_prefix}%{pkg_name}
 Version:        0.0.7
-Release:        11.10%{?dist}
+Release:        11.11%{?dist}
 Summary:        Plexus Build API
 
 License:        ASL 2.0
@@ -18,17 +18,17 @@ Patch0:         %{pkg_name}-migration-to-component-metadata.patch
 BuildArch: noarch
 
 BuildRequires: %{?scl_prefix_java_common}maven-local
-BuildRequires: maven30-maven-plugin-plugin
-BuildRequires: maven30-maven-resources-plugin
-BuildRequires: maven30-maven-doxia-sitetools
-BuildRequires: maven30-plexus-containers-container-default
-BuildRequires: maven30-plexus-utils
-BuildRequires: maven30-forge-parent
-BuildRequires: maven30-spice-parent
+BuildRequires: %{?scl_prefix}maven-plugin-plugin
+BuildRequires: %{?scl_prefix}maven-resources-plugin
+BuildRequires: %{?scl_prefix}maven-doxia-sitetools
+BuildRequires: %{?scl_prefix}plexus-containers-container-default
+BuildRequires: %{?scl_prefix}plexus-utils
+BuildRequires: %{?scl_prefix}forge-parent
+BuildRequires: %{?scl_prefix}spice-parent
 BuildRequires: %{?scl_prefix_java_common}junit
-BuildRequires: maven30-plexus-containers-component-metadata
-BuildRequires: maven30-maven-reporting-impl
-BuildRequires: maven30-plexus-digest
+BuildRequires: %{?scl_prefix}plexus-containers-component-metadata
+BuildRequires: %{?scl_prefix}maven-reporting-impl
+BuildRequires: %{?scl_prefix}plexus-digest
 
 %description
 Plexus Build API
@@ -41,7 +41,7 @@ API documentation for %{pkg_name}.
 
 %prep
 %setup -q -n sonatype-sisu-build-api-f1f8849
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 cp -p %{SOURCE1} .
 
@@ -51,13 +51,13 @@ cp -p %{SOURCE1} .
 %{?scl:EOF}
 
 %build
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 %mvn_build
 %{?scl:EOF}
 
 %install
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 %mvn_install
 %{?scl:EOF}
@@ -71,6 +71,9 @@ set -e -x
 %doc LICENSE-2.0.txt
 
 %changelog
+* Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 0.0.7-11.11
+- maven33 rebuild #2
+
 * Sat Jan 09 2016 Michal Srb <msrb@redhat.com> - 0.0.7-11.10
 - maven33 rebuild
 
