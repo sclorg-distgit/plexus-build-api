@@ -4,7 +4,7 @@
 
 Name:           %{?scl_prefix}%{pkg_name}
 Version:        0.0.7
-Release:        11.11%{?dist}
+Release:        11.12%{?dist}
 Summary:        Plexus Build API
 
 License:        ASL 2.0
@@ -17,7 +17,7 @@ Patch0:         %{pkg_name}-migration-to-component-metadata.patch
 
 BuildArch: noarch
 
-BuildRequires: %{?scl_prefix_java_common}maven-local
+BuildRequires: %{?scl_prefix}maven-local
 BuildRequires: %{?scl_prefix}maven-plugin-plugin
 BuildRequires: %{?scl_prefix}maven-resources-plugin
 BuildRequires: %{?scl_prefix}maven-doxia-sitetools
@@ -71,6 +71,9 @@ set -e -x
 %doc LICENSE-2.0.txt
 
 %changelog
+* Mon Feb 08 2016 Michal Srb <msrb@redhat.com> - 0.0.7-11.12
+- Fix BR on maven-local & co.
+
 * Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 0.0.7-11.11
 - maven33 rebuild #2
 
