@@ -3,7 +3,7 @@
 
 Name:           %{?scl_prefix}plexus-build-api
 Version:        0.0.7
-Release:        17.1%{?dist}
+Release:        17.2%{?dist}
 Summary:        Plexus Build API
 License:        ASL 2.0
 URL:            https://github.com/sonatype/sisu-build-api
@@ -52,6 +52,9 @@ cp -p %{SOURCE1} .
 %doc LICENSE-2.0.txt
 
 %changelog
+* Thu Jun 22 2017 Michael Simacek <msimacek@redhat.com> - 0.0.7-17.2
+- Mass rebuild 2017-06-22
+
 * Wed Jun 21 2017 Java Maintainers <java-maint@redhat.com> - 0.0.7-17.1
 - Automated package import and SCL-ization
 
